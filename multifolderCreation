@@ -1,0 +1,13 @@
+$folders = @(
+    "About", "FootoverBridgesManufacturer", "MildSteelDoor", "MildSteelGrill", "MildSteelStaircase",
+    "Msfabrications", "SsFabrication", "BaileyBridgesManufacturing", "GriderBridgesManufacturing",
+    "MildSteelFolding", "MildSteelRailing", "MildSteelStructure", "Preengineeringstructure",
+    "StructuralFabrication", "CanopyManufacturers", "Home", "MildSteelFurniture",
+    "MildSteelRollingShutter", "MildSteelTable", "SheetMetalComponent", "TrussBridgesManufacturer",
+    "Contact", "MildSteelBarricading", "MildSteelGate", "MildSteelSlidingDoor",
+    "MildSteelWindow", "SheetMetalFabrication"
+)
+
+foreach ($folder in $folders) {
+    New-Item -ItemType Directory -Name $folder -Force
+}
