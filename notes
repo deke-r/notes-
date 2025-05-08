@@ -1,0 +1,1 @@
+pm2 start node_modules/next/dist/bin/next --name acmeglobal -- start -p 3001
