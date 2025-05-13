@@ -4,6 +4,8 @@ pm2 start node_modules/next/dist/bin/next --name acmeglobal -- start -p 3001
 nslookup -type=ns yourdomain.com
 nslookup yourdomain.com
 ------------------------------------/>
-
+2).SSL using certbot ----------------//
+sudo certbot --nginx -d starglass.in -d www.starglass.in
+-----------------------------------/>
 
 
