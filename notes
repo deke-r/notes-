@@ -15,5 +15,8 @@ Firwall-------------------//
 2).sudo ufw enable
 3).sudo ufw allow 3000
 
+Modoboa ------------------//
+sudo ./run.py --interactive yourdomain.com
+
 
 
