@@ -1,0 +1,30 @@
+# 📱 Expo EAS Build Guide (Android .aab)
+
+# 1. Login to Expo (required before builds)
+npx expo login
+
+# 2. Configure EAS for the project (creates eas.json if missing)
+eas build:configure
+
+# 3. Clean project and regenerate native folders (use when icons/splash/config are changed)
+npx expo prebuild --clean
+
+# 4. Run locally on a connected Android device/emulator (debug build)
+npx expo run:android
+
+# 5. Create a development build (used for internal testing with Expo Go replacement)
+eas build -p android --profile development
+
+# 6. Create a preview build (for sharing with testers before production release)
+eas build -p android --profile preview
+
+# 7. Create a production build (.aab) for Google Play Store
+eas build -p android --profile production
+
+# 8. Check build status and get download links
+eas build:list
+
+# 9. Upload the generated .aab to Google Play Console:
+#    → Go to https://play.google.com/console/
+#    → Select your app → Production → Releases → Create new release
+#    → Upload .aab, add release notes, review, and roll out
