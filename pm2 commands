@@ -1,0 +1,186 @@
+# PM2 Command Reference Guide
+
+A complete list of useful PM2 commands with simple explanations.
+Use this as your master reference for managing Node.js applications on a server.
+
+---
+
+## 1. Start Applications
+
+### **Start a Node/Next.js App**
+
+```
+pm2 start app.js
+pm2 start npm --name "myapp" -- start
+```
+
+**Use:** Starts an application using PM2.
+
+### **Start App with a Custom Name**
+
+```
+pm2 start server.js --name project-backend
+```
+
+**Use:** Helps identify apps easily in the PM2 list.
+
+---
+
+## 2. Manage Running Apps
+
+### **View All Running Processes**
+
+```
+pm2 list
+```
+
+### **View Logs**
+
+```
+pm2 logs
+pm2 logs project-name
+```
+
+### **Restart App**
+
+```
+pm2 restart project-name
+```
+
+### **Stop App**
+
+```
+pm2 stop project-name
+```
+
+### **Delete App**
+
+```
+pm2 delete project-name
+```
+
+---
+
+## 3. Auto-Restart on Server Boot (VERY Important)
+
+### **Save Current PM2 Apps**
+
+```
+pm2 save
+```
+
+**Use:** Saves all running apps so PM2 can restore them after reboot.
+
+### **Enable PM2 to Start on Boot**
+
+```
+pm2 startup systemd
+```
+
+**Use:** Generates a command that must be copied and run.
+This registers PM2 with systemd so it runs automatically after reboot.
+
+### **Run the Generated Command**
+
+Example:
+
+```
+sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u root --hp /root
+```
+
+---
+
+## 4. Restore After Reboot
+
+### **Auto-restore all saved apps**
+
+```
+pm2 resurrect
+```
+
+**Use:** Restores apps from the last `pm2 save`.
+
+---
+
+## 5. Monitor Performance
+
+### **Live CPU & Memory Monitoring**
+
+```
+pm2 monit
+```
+
+### **App Info**
+
+```
+pm2 describe project-name
+```
+
+---
+
+## 6. Log Controls
+
+### **Clear All Logs**
+
+```
+pm2 flush
+```
+
+### **Clear Specific Logs**
+
+```
+pm2 flush project-name
+```
+
+---
+
+## 7. Watch Mode (Auto Restart on File Change)
+
+```
+pm2 start app.js --watch
+```
+
+---
+
+## 8. PM2 Backup File Locations
+
+```
+~/.pm2/dump.pm2     → Stores saved apps for resurrect
+~/.pm2/logs/        → Contains logs
+```
+
+---
+
+## 9. Full PM2 Reset (Use Only When Needed)
+
+```
+pm2 kill
+pm2 delete all
+pm2 reset all
+```
+
+**Use:** Clears PM2 completely.
+
+---
+
+# ⭐ Recommended Routine Commands
+
+To make apps fully stable:
+
+### After setting up all apps:
+
+```
+pm2 save
+pm2 startup systemd
+```
+
+### After deploying updates:
+
+```
+pm2 restart app-name
+pm2 save
+```
+
+---
+
+**Keep this document safe — this is all you need to fully control PM2 on any server.**
