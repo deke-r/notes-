@@ -1,0 +1,59 @@
+##############################################
+#             START ALL PROJECTS             #
+##############################################
+
+echo "Starting MetaSense..."
+cd /var/www/MetaSense
+pm2 start node_modules/next/dist/bin/next --name metasense -- start -p 3019
+
+
+echo "Starting Scrapify..."
+cd /var/www/scrapify
+pm2 start node_modules/next/dist/bin/next --name scrapify -- start -p 3014
+
+
+echo "Starting SkySignage..."
+cd /var/www/skysignage
+pm2 start node_modules/next/dist/bin/next --name skysignage -- start -p 3013
+
+
+echo "Starting SenseInteriors..."
+cd /var/www/senseInteriors
+pm2 start node_modules/next/dist/bin/next --name senseInteriors -- start -p 3012
+
+
+echo "Starting Aerofabricators Backend..."
+cd /var/www/aerofabricators/server
+pm2 start app.js --name aerofabricators
+
+
+echo "Starting Sense React Time Tracker Backend..."
+cd /var/www/SenseReactTimeTracker/server
+pm2 start app.js --name senseTracker
+
+
+echo "Starting CFDSI Next..."
+cd /var/www/cfdsinxt
+pm2 start node_modules/next/dist/bin/next --name cfdsi -- start -p 3039
+
+
+echo "Starting Scrapify Backend..."
+cd /var/www/scraAppBackend
+pm2 start app.js --name scrapifyBackend
+
+
+echo "Starting Sense HRM Backend..."
+cd /var/www/senseHrm/backend
+pm2 start server.js --name hrm
+
+
+echo "Starting Ecommerce Sense Backend..."
+cd /var/www/ecommerce-sense/backend
+pm2 start server.js --name ecommerce
+
+
+##############################################
+#        ALL PROJECTS STARTED FINISHED       #
+##############################################
+
+echo "All projects started successfully!"
