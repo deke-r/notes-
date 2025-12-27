@@ -1,0 +1,42 @@
+ ##############################################
+#        START ALL PROJECTS (SECURE)         #
+##############################################
+
+export HOST=127.0.0.1
+
+echo "Starting MetaSense..."
+cd /var/www/MetaSense
+pm2 start node_modules/next/dist/bin/next --name metasense -- start -H 127.0.0.1 -p 3019
+
+
+echo "Starting Scrapify..."
+cd /var/www/scrapify
+pm2 start node_modules/next/dist/bin/next --name scrapify -- start -H 127.0.0.1 -p 3014
+
+
+echo "Starting SkySignage..."
+cd /var/www/skysignage
+pm2 start node_modules/next/dist/bin/next --name skysignage -- start -H 127.0.0.1 -p 3013
+
+
+echo "Starting SenseInteriors..."
+cd /var/www/senseInteriors
+pm2 start node_modules/next/dist/bin/next --name senseInteriors -- start -H 127.0.0.1 -p 3012
+
+
+echo "Starting CFDSI Next..."
+cd /var/www/cfdsinxt
+pm2 start node_modules/next/dist/bin/next --name cfdsi -- start -H 127.0.0.1 -p 3039
+
+
+echo "Starting Aerofabricators Backend..."
+cd /var/www/aerofabricators/server
+PORT=4000 pm2 start app.js --name aerofabricators -- --host 127.0.0.1
+
+
+echo "Starting Sense React Time Tracker Backend..."
+cd /var/www/SenseReactTimeTracker/server
+PORT=5000 pm2 start app.js --name senseTracker -- --host 127.0.0.1
+
+
+echo "All projects started securely on localhost!"--host 127.0.0.10.1
