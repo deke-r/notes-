@@ -46,5 +46,10 @@ echo "Starting SenseBilling Backend..."
 cd /var/www/senseProjectsBilling/server
 PORT=4010 pm2 start app.js --name sensebilling-backend -- --host 127.0.0.1
 
+echo "Starting Ecommerce Sense Backend..."
+cd /var/www/ecommerce-sense/backend
+PORT=5980 pm2 start server.js --name ecommerce -- --host 127.0.0.1
+
+
 
 echo "All projects started securely on localhost!"--host 127.0.0.10.1
